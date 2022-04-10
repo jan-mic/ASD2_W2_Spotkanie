@@ -1,3 +1,4 @@
+//niestety nie zdazylem rozwiazac problemu w sytuacji kiedy do spotkania nie dochodzi
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -80,11 +81,12 @@ int temporary_min(vector <int> possible_points_effort) {
 
 int main()
 {
-    // n - liczba ulic, max-letter - najwieksza uzyta litera
+    // n - liczba ulic
     int n;
     cin >> n;
 
     while (n) {
+        //max - letter - najwieksza uzyta litera
         int max_letter = 64;
 
         //tablica przechowujaca informacje o ulicach
@@ -111,12 +113,6 @@ int main()
         cin >> s >> p;
         s_start = static_cast<int>(s);
         p_start = static_cast<int>(p);
-
-        //===========================================
-
-        
-
-        //===========================================
 
         //tablica zawierajaca sasiadow danego punktu z podzialem na rodzaj ulicy: m - dla studenstow, d - dla profesorow
         vector <vector<int>> neighbours_m(max_letter - 64);
