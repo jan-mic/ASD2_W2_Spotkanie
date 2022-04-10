@@ -112,6 +112,12 @@ int main()
         s_start = static_cast<int>(s);
         p_start = static_cast<int>(p);
 
+        //===========================================
+
+        
+
+        //===========================================
+
         //tablica zawierajaca sasiadow danego punktu z podzialem na rodzaj ulicy: m - dla studenstow, d - dla profesorow
         vector <vector<int>> neighbours_m(max_letter - 64);
         vector <vector<int>> neighbours_d(max_letter - 64);
@@ -153,16 +159,22 @@ int main()
             }
         }
 
+        vector <int> out_letters;
         cout << min_effort;
         for (int i = 0; i < possible_points_m_effort.size(); i++) {
             for (int j = 0; j < possible_points_d_effort.size(); j++) {
                 if (possible_points_m_letter[i] == possible_points_d_letter[j]) {
                     if (possible_points_m_effort[i] + possible_points_d_effort[j] == min_effort)
-                        cout << ' ' << (char)possible_points_m_letter[i];
+                        out_letters.push_back(possible_points_m_letter[i]);
 
                 }
             }
         }
+
+        //wypisywanie w porzadku leksykograficznym
+        sort(out_letters.begin(), out_letters.end());
+        for (int i = 0; i < out_letters.size(); i++)
+            cout << ' ' << (char)out_letters[i];
 
         cin >> n;
         if (n)
